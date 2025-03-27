@@ -34,7 +34,30 @@ const ctx5 = squareFill.getContext("2d");
 //filled the rectangle
 ctx5.fillStyle = "red";
 ctx5.fillRect(20,20, 200, 100);
+ctx5.fillStyle = "rgb(0 255 0/50%)";// property to create opacity
+ctx5.fillRect(30,150,230,200);
 //the outline rectangle
+
 ctx5.strokeStyle = "black";
 ctx5.lineWidth = 3;
 ctx5.strokeRect(20,20,200,100);
+ctx5.strokeStyle = "rgb(0 0 0 255/50%)";//property to create opacity
+ctx5.strokeRect(30,150,230,200);
+
+// shapes
+const shapes = document.getElementById("canvas1");
+const ctx6 = shapes.getContext("2d");
+ctx6.beginPath();
+// set start-point
+ctx6.moveTo(20,20);
+//set sub point
+ctx6.lineTo(20,180);
+ctx6.lineTo(200,180);
+ctx6.lineTo(200,20);
+//set end point
+ctx6.lineTo(20,20);
+ctx6.stroke();
+
+
+
+
