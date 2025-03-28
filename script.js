@@ -56,8 +56,32 @@ ctx6.lineTo(200,180);
 ctx6.lineTo(200,20);
 //set end point
 ctx6.lineTo(20,20);
+//define triangle
+ctx6.moveTo(100,20);
+ctx6.lineTo(180,100);
+ctx6.lineTo(20,100);
+ctx6.lineTo(100,20);
+ctx6.strokeStyle="red";
 ctx6.stroke();
 
 
 
+// rectangle inside multiple rectangle
+const rectangleCanvas = document.getElementById("canvas2");
+const ctx7 =  rectangleCanvas.getContext("2d");
+//red rectangle
+ctx7.lineWidth = "6";
+ctx7.strokeStyle= "red";
+ctx7.strokeRect(5,5,290,150);
 
+
+// green rectangle
+ctx7.lineWidth = "4";
+ctx7.strokeStyle = "green";
+ctx7.strokeRect(30,20,60,60);
+
+//yellow rectangle
+ctx7.lineWidth ="10";
+ctx7.strokeStyle = "yellow";
+ctx7.strokeRect(50,50,180,80);
+ctx7.clearRect(60,35,150,50);
