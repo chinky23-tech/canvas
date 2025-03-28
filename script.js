@@ -85,3 +85,8 @@ ctx7.lineWidth ="10";
 ctx7.strokeStyle = "yellow";
 ctx7.strokeRect(50,50,180,80);
 ctx7.clearRect(60,35,150,50);
+//pink rectangle
+ctx7.lineWidth ="8";
+ctx7.strokeStyle = "pink";
+ctx7.strokeRect(70,35,80,100);
+ctx7.clearRect(20,30,67,30);
