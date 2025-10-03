@@ -1,20 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>canvas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Navbar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
-<body>
-    <canvas id="myCanvas" width="300" height="400" style="border:1px solid #000000;"></canvas>
-    <canvas id="redCanvas" width="300" height="400" style="border:2px solid #000000;"></canvas> 
-    <canvas id="circleCanvas" width="300" height="400" style="border: 1px solid #000000;"></canvas>
-    <canvas id="strokeCanvas" width="300" height="400" style="border:1px solid #000000;"></canvas>
-    <canvas id="fillCanvas" width="300" height="400" style="border:1px solid #000000;"></canvas>
-    <canvas id="canvas1" width="300" height="400" style="border:1px solid #000000;"></canvas>
-    <canvas id="canvas2" width="300" height="400" style="border:1px solid #000000"></canvas>
-    
-    <script src="script.js"></script>
+<body class="bg-gray-900 text-white">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full top-0 left-0 z-50 bg-gray-900/80 backdrop-blur-md shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-indigo-400 cursor-pointer">
+        SheCodes
+      </div>
+
+      <!-- Nav Links (Desktop) -->
+      <ul class="hidden md:flex space-x-8 text-lg font-medium">
+        <li><a href="#about" class="hover:text-indigo-400 transition">About</a></li>
+        <li><a href="#services" class="hover:text-indigo-400 transition">Services</a></li>
+        <li><a href="#projects" class="hover:text-indigo-400 transition">Projects</a></li>
+        <li><a href="#contact" class="hover:text-indigo-400 transition">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1">
+        <span class="w-6 h-0.5 bg-white"></span>
+        <span class="w-6 h-0.5 bg-white"></span>
+        <span class="w-6 h-0.5 bg-white"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Fullscreen Menu -->
+  <div id="mobile-menu" class="fixed inset-20 bg-gray-900 hidden flex-col items-center justify-center text-center z-40">
+    <ul class="space-y-8 text-2xl font-semibold">
+      <li><a href="#about" class="hover:text-indigo-400 transition">About</a></li>
+      <li><a href="#services" class="hover:text-indigo-400 transition">Services</a></li>
+      <li><a href="#projects" class="hover:text-indigo-400 transition">Projects</a></li>
+      <li><a href="#contact" class="hover:text-indigo-400 transition">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Dummy Content (to test scroll) -->
+  <section id="about" class="h-screen flex items-center justify-center">About Section</section>
+  <section id="services" class="h-screen flex items-center justify-center bg-gray-800">Services Section</section>
+  <section id="projects" class="h-screen flex items-center justify-center">Projects Section</section>
+  <section id="contact" class="h-screen flex items-center justify-center bg-gray-800">Contact Section</section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    let menuOpen = false;
+
+    menuBtn.addEventListener("click", () => {
+      if (!menuOpen) {
+        mobileMenu.classList.remove("hidden");
+        gsap.fromTo(mobileMenu, { y: "-100%" }, { y: 0, duration: 0.6, ease: "power4.out" });
+        gsap.from("#mobile-menu ul li", {
+          opacity: 0,
+          y: 30,
+          duration: 0.5,
+          delay: 0.3,
+          stagger: 0.2
+        });
+        menuOpen = true;
+      } else {
+        gsap.to(mobileMenu, {
+          y: "-100%",
+          duration: 0.6,
+          ease: "power4.in",
+          onComplete: () => mobileMenu.classList.add("hidden")
+        });
+        menuOpen = false;
+      }
+    });
+  </script>
+
 </body>
 </html>
