@@ -392,6 +392,9 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .text-black {
+    color: var(--color-black);
+  }
   .text-indigo-400 {
     color: var(--color-indigo-400);
   }
