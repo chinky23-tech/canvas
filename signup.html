@@ -3,51 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up </title>
-    <link rel="stylesheet" href="./src/output.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Glassmorphism Login Form with Tailwind CSS</title>
+   <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
 </head>
-<body>
-<div class="container">
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
-  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-
-    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
-  </div>
-
-  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form action="#" method="POST" class="space-y-6">
-      <div>
-        <label for="email" class="block text-sm/6 font-medium text-black">Email address</label>
-        <div class="mt-2">
-          <input id="email" type="email" name="email" required autocomplete="email" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+<body class="bg-[#080710] min-h-screen flex items-center justify-center font-poppins">
+    <!-- Background shapes -->
+    <div class="fixed w-full h-full overflow-hidden">
+        <div class="absolute w-[430px] h-[520px] transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
+            <div class="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-br from-[#1845ad] to-[#23a2f6] -left-20 -top-20"></div>
+            <div class="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-r from-[#ff512f] to-[#f09819] -right-8 -bottom-20"></div>
         </div>
-      </div>
-
-      <div>
-        <div class="flex items-center justify-between">
-          <label for="password" class="block text-sm/6 font-medium text-black">Password</label>
-          <div class="text-sm">
-            <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Forgot password?</a>
-          </div>
-        </div>
-        <div class="mt-2">
-          <input id="password" type="password" name="password" required autocomplete="current-password" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
-        </div>
-      </div>
-
-      <div>
-        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Sign in</button>
-      </div>
-    </form>
-
-    <p class="mt-10 text-center text-sm/6 text-black">
-      Not a member?
-      <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Start a 14 day free trial</a>
-    </p>
-  </div>
-</div>
-</div>
-
+    </div>
+    
+    <!-- Login form -->
+    <div class="relative z-10 w-full max-w-md">
+        <form class="bg-glass backdrop-blur-md border border-white/10  border-glass  bg-white/10 rounded-xl shadow-glass p-12">
+            <h3 class="text-3xl font-medium text-white text-center mb-8">Login Here</h3>
+            
+            <div class="mb-6">
+                <label for="username" class="block text-white text-base font-medium mb-2">Username</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    placeholder="Email or Phone" 
+                    class="w-full h-12 bg-glass-input rounded px-3 text-white placeholder-[#e5e5e5] focus:outline-none focus:ring-2 focus:ring-white/30"
+                >
+            </div>
+            
+            <div class="mb-2">
+                <label for="password" class="block text-white text-base font-medium mb-2">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Password" 
+                    class="w-full h-12 bg-glass-input rounded px-3 text-white placeholder-[#e5e5e5] focus:outline-none focus:ring-2 focus:ring-white/30">
+              
+            </div>
+            
+            <button class="w-full bg-white/10 text-[#080710] py-4 rounded-lg font-semibold text-lg mt-10 hover:bg-gray-100 transition-colors duration-300">
+                Log In
+            </button>
+            
+            <div class="flex justify-between mt-8">
+                <div class="flex items-center justify-center bg-white/10  bg-glass-social text-[#eaf0fb] w-[150px] py-2 rounded cursor-pointer hover:bg-white/40 transition-colors duration-300">
+                    <i class="fab fa-google mr-2"></i>
+                    <span>Google</span>
+                </div>
+                <div class="flex items-center justify-center bg-white/10 bg-glass-social text-[#eaf0fb] w-[150px] py-2 rounded cursor-pointer hover:bg-white/40 transition-colors duration-300">
+                    <i class="fab fa-facebook mr-2"></i>
+                    <span>Facebook</span>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
