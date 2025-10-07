@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheCodes Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body class="bg-white text-indigo-500 font-sans tracking-wide">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full top-0 left-0 z-50 backdrop-blur-lg bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-indigo-500 cursor-pointer tracking-wider">
+        SheCodes
+      </div>
+
+      <!-- Nav Links (Desktop) -->
+      <ul class="hidden md:flex space-x-8 text-lg font-medium">
+        <li><a href="#about" class="hover:text-indigo-400 transition-colors duration-300">About</a></li>
+        <li><a href="#services" class="hover:text-indigo-400 transition-colors duration-300">Services</a></li>
+        <li><a href="#projects" class="hover:text-indigo-400 transition-colors duration-300">Projects</a></li>
+        <li><a href="#contact" class="hover:text-indigo-400 transition-colors duration-300">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden flex flex-col space-y-1 focus:outline-none">
+        <span class="w-6 h-0.5 bg-indigo-500"></span>
+        <span class="w-6 h-0.5 bg-indigo-500"></span>
+        <span class="w-6 h-0.5 bg-indigo-500"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Fullscreen Menu -->
+  <div id="mobile-menu" class="fixed inset-0 p-28 bg-indigo-50 hidden flex-col items-center justify-center text-center text-indigo-700">
+    <ul class="space-y-8 text-2xl font-semibold">
+      <li><a href="#about" class="hover:text-indigo-500 transition-colors duration-300">About</a></li>
+      <li><a href="#services" class="hover:text-indigo-500 transition-colors duration-300">Services</a></li>
+      <li><a href="#projects" class="hover:text-indigo-500 transition-colors duration-300">Projects</a></li>
+      <li><a href="#contact" class="hover:text-indigo-500 transition-colors duration-300">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Dummy Sections -->
+  <section id="about" class="h-screen flex items-center justify-center">About Section</section>
+  <section id="services" class="h-screen flex items-center justify-center bg-gray-800">Services Section</section>
+  <section id="projects" class="h-screen flex items-center justify-center">Projects Section</section>
+  <section id="contact" class="h-screen flex items-center justify-center bg-gray-800">Contact Section</section>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    let menuOpen = false;
+
+    menuBtn.addEventListener("click", () => {
+      if (!menuOpen) {
+        mobileMenu.classList.remove("hidden");
+        gsap.fromTo(mobileMenu, { y: "-100%" }, { y: 0, duration: 0.6, ease: "power4.out" });
+        gsap.from("#mobile-menu ul li", {
+          opacity: 0,
+          y: 30,
+          duration: 0.5,
+          delay: 0.3,
+          stagger: 0.2
+        });
+        menuOpen = true;
+      } else {
+        gsap.to(mobileMenu, {
+          y: "-100%",
+          duration: 0.6,
+          ease: "power4.in",
+          onComplete: () => mobileMenu.classList.add("hidden")
+        });
+        menuOpen = false;
+      }
+    });
+  </script>
+
+</body>
+
+
